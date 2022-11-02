@@ -6,10 +6,11 @@ import java.util.function.BooleanSupplier;
 
 public class Usuario implements Observable{
 	
-	private List<Observer> observers;
+	private List<Proyecto> proyectos; // debe ir uno o el otro, no los dos
+	private List<Observer> observers; //
 	private Muestra ultimaMuestra;
 	private List<Muestra> muestras;
-	private List<Proyecto> proyectos;
+	
 
 	public Usuario() {
 		observers = new ArrayList<Observer>();
