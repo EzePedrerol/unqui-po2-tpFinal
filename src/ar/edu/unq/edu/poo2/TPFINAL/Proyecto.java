@@ -62,8 +62,20 @@ public class Proyecto implements Observer {
 
 	@Override
 	public void update(Observable observable) {
-		// TODO Auto-generated method stub
+		//this.muestras.add(observable.getMuestras());
 		
+	}
+
+	public void suscribirUsuario(Usuario usuario) {
+		this.usuarios.add(usuario);
+	}
+
+	public void agregarMuestra(Muestra muestra) {
+		this.muestras.add(muestra);
+	}
+
+	public void agregarCategoria(Categoria otraCategoria) {
+		this.categorias.add(otraCategoria);
 	}
 
 

@@ -7,10 +7,10 @@ public class Desafio {
 	private int recompensa;
 	private Area area;
 	
-	public Desafio(int cantidadMuestras, int dificultad, int recompensa, Area area) {
+	public Desafio(int cantidadMuestras, int dificultad, int recompensa, Area area) { // agregar restriccion temporal
 		this.setCantidadMuestras(cantidadMuestras);
 		this.setDificultad(dificultad);
-		this.recompensa(recompensa);
+		this.setRecompensa(recompensa);
 		this.setArea(area);
 	}
 	
