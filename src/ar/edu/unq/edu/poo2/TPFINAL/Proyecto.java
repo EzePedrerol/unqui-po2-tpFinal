@@ -62,7 +62,8 @@ public class Proyecto implements Observer {
 
 	@Override
 	public void update(Observable observable) {
-		//this.muestras.add(observable.getMuestras());
+		Usuario u = (Usuario) observable;
+		this.muestras.add(u.getUltimaMuestra());
 		
 	}
 

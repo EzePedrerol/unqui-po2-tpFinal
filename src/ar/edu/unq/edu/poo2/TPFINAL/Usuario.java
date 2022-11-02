@@ -49,6 +49,16 @@ public class Usuario implements Observable{
 		return this.proyectos;
 	}
 	
+	public Muestra getUltimaMuestra() {
+		return this.ultimaMuestra;
+	}
+	
+	
+	public void recogerMuestra(Muestra muestra) {
+		this.muestras.add(muestra);
+		this.ultimaMuestra = muestra;
+		// avisar al proyecto
+	}
 	
 	/*
 	 * aceptarDesafio
