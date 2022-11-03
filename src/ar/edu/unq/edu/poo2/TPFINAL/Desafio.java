@@ -6,12 +6,22 @@ public class Desafio {
 	private int dificultad;
 	private int recompensa;
 	private Area area;
+	private RestriccionTemporal restriccion;
 	
-	public Desafio(int cantidadMuestras, int dificultad, int recompensa, Area area) { // agregar restriccion temporal
+	public Desafio(int cantidadMuestras, int dificultad, int recompensa, Area area, RestriccionTemporal restriccion) { // agregar restriccion temporal
 		this.setCantidadMuestras(cantidadMuestras);
 		this.setDificultad(dificultad);
 		this.setRecompensa(recompensa);
 		this.setArea(area);
+		this.setRestriccion(restriccion);
+	}
+	
+	public RestriccionTemporal getRestriccion() {
+		return restriccion;
+	}
+	
+	public void setRestriccion(RestriccionTemporal restriccion) {
+		this.restriccion = restriccion;
 	}
 	
 	public int getCantidadMuestras() {
@@ -44,5 +54,9 @@ public class Desafio {
 	
 	public void setArea(Area area) {
 		this.area = area;
+	}
+
+	public Boolean perteneceA(Proyecto proyecto) {
+		return proyecto.tieneDesafio(this);
 	}
 }
