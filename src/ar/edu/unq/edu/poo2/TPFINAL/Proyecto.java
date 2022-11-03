@@ -2,6 +2,7 @@ package ar.edu.unq.edu.poo2.TPFINAL;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BooleanSupplier;
 
 public class Proyecto implements Observer {
 	
@@ -10,6 +11,7 @@ public class Proyecto implements Observer {
 	private List<Categoria> categorias;
 	private List<Muestra> muestras;
 	private List<Usuario> usuarios;
+	private List<Desafio> desafios;
 	
 	public Proyecto(String titulo, String descripcion, List<Categoria> categorias) {
 		this.setTitulo(titulo);
@@ -17,6 +19,7 @@ public class Proyecto implements Observer {
 		this.setCategorias(categorias);
 		muestras = new ArrayList<Muestra>();
 		usuarios = new ArrayList<Usuario>();
+		desafios = new ArrayList<Desafio>();
 		
 	}
 
@@ -57,7 +60,8 @@ public class Proyecto implements Observer {
 	}
 
 	public void setCategorias(List<Categoria> categorias) {
-		this.categorias = categorias;
+		this.categorias = new ArrayList<Categoria>();
+		this.categorias.addAll(categorias);
 	}
 
 	@Override
@@ -75,8 +79,20 @@ public class Proyecto implements Observer {
 		this.muestras.add(muestra);
 	}
 
-	public void agregarCategoria(Categoria otraCategoria) {
-		this.categorias.add(otraCategoria);
+	public void agregarCategoria(Categoria categoria) {
+		this.categorias.add(categoria);
+	}
+
+	public void agregarDesafio(Desafio desafio) {
+		this.desafios.add(desafio);
+	}
+
+	public List<Desafio> getDesafios() {
+		return this.desafios;
+	}
+
+	public Boolean tieneDesafio(Desafio desafio) {
+		return this.desafios.contains(desafio);
 	}
 
 

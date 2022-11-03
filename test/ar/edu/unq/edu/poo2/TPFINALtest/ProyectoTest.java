@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ar.edu.unq.edu.poo2.TPFINAL.Categoria;
+import ar.edu.unq.edu.poo2.TPFINAL.Desafio;
 import ar.edu.unq.edu.poo2.TPFINAL.Muestra;
 import ar.edu.unq.edu.poo2.TPFINAL.Proyecto;
 import ar.edu.unq.edu.poo2.TPFINAL.Usuario;
@@ -21,12 +22,16 @@ public class ProyectoTest {
 	Categoria otraCategoria;
 	Usuario usuario;
 	Muestra muestra;
+	Desafio desafio;
 
 	@BeforeEach
 	public void setup() {
+		unaCategoria = new Categoria("programacion");
+		otraCategoria = new Categoria("literatura");
 		categorias = Arrays.asList(unaCategoria);
 		proyecto = new Proyecto("El Proyecto", "Soy un proyecto", categorias);
 		muestra = mock(Muestra.class);
+		desafio = mock(Desafio.class);
 	}
 
 	@Test
@@ -63,7 +68,16 @@ public class ProyectoTest {
 
 	@Test
 	public void agregarCategoriaTest() {
+		
+		int cant = proyecto.getCategorias().size();
+		
 		proyecto.agregarCategoria(otraCategoria);
-		assertFalse(proyecto.getMuestras().isEmpty());
+		assertEquals(cant +1, proyecto.getCategorias().size());
+	}
+	
+	@Test
+	public void agregarDesafioTest() {
+		proyecto.agregarDesafio(desafio);
+		assertTrue(proyecto.tieneDesafio(desafio));
 	}
 }
