@@ -1,6 +1,8 @@
 package ar.edu.unq.edu.poo2.TPFINALtest;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -10,6 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ar.edu.unq.edu.poo2.TPFINAL.Muestra;
+import ar.edu.unq.edu.poo2.TPFINAL.Preferencia;
 import ar.edu.unq.edu.poo2.TPFINAL.Proyecto;
 import ar.edu.unq.edu.poo2.TPFINAL.Usuario;
 
@@ -18,12 +21,14 @@ public class UsuarioTest {
 	Usuario usuario;
 	Proyecto proyecto;
 	Muestra muestra;
+	Preferencia preferencia;
 	
 	@BeforeEach
 	public void setup() {
 		usuario = new Usuario();
 		proyecto = mock(Proyecto.class);
 		muestra = mock(Muestra.class);
+		preferencia = mock(Preferencia.class);
 	}
 	
 	@Test
@@ -58,5 +63,10 @@ public class UsuarioTest {
 		assertEquals(Arrays.asList(muestra), usuario.getMuestras());
 	}
 	
+	@Test
+	public void setYgetPreferencia() {
+		usuario.setPreferencia(preferencia);
+		assertEquals(preferencia, usuario.getPreferencia());
+	}
 
 }

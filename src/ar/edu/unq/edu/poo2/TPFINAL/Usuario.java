@@ -2,7 +2,6 @@ package ar.edu.unq.edu.poo2.TPFINAL;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BooleanSupplier;
 
 public class Usuario implements Observable{
 	
@@ -10,6 +9,8 @@ public class Usuario implements Observable{
 	private List<Observer> observers; //
 	private Muestra ultimaMuestra;
 	private List<Muestra> muestras;
+	private Preferencia preferencia;
+	
 	
 
 	public Usuario() {
@@ -40,11 +41,6 @@ public class Usuario implements Observable{
 		return this.muestras;
 	}
 
-	public void suscribirseA(Proyecto proyecto) {
-		proyecto.suscribirUsuario(this);
-		this.proyectos.add(proyecto);
-		this.observers.add(proyecto);	// corregir, dejar uno o el otro
-	}
 
 	public List<Proyecto> getProyecto() {
 		return this.proyectos;
@@ -54,12 +50,26 @@ public class Usuario implements Observable{
 		return this.ultimaMuestra;
 	}
 	
+	public void setPreferencia(Preferencia preferencia) {
+		this.preferencia = preferencia;
+	}
+	
+	
+	public void suscribirseA(Proyecto proyecto) {
+		proyecto.suscribirUsuario(this);
+		this.proyectos.add(proyecto);
+		this.observers.add(proyecto);	// corregir, dejar uno o el otro
+	}
 	
 	public void recogerMuestra(Muestra muestra) {
 		this.muestras.add(muestra);
 		this.ultimaMuestra = muestra;
 		muestra.setUsuario(this);
 		// avisar al proyecto
+	}
+
+	public Preferencia getPreferencia() {
+		return this.preferencia;
 	}
 	
 	/*
