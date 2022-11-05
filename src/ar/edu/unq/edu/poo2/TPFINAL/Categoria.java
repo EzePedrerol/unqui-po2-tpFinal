@@ -12,7 +12,7 @@ public class Categoria {
 		this.nombre= nombre;
 	}
 
-	public Object getNombre() {
+	public String getNombre() {
 		return this.nombre;
 	}
 
