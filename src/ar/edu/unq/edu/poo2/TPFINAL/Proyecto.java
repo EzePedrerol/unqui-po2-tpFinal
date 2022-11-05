@@ -27,17 +27,12 @@ public class Proyecto implements Observer {
 		return muestras;
 	}
 
-	public void setMuestras(List<Muestra> muestras) {
-		this.muestras = muestras;
-	}
 
 	public List<Usuario> getUsuarios() {
 		return usuarios;
 	}
 
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
-	}
+	
 
 	public String getTitulo() {
 		return titulo;
