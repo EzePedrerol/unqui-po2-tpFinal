@@ -8,31 +8,31 @@ public class Preferencia {
 
 	public Preferencia(int cantMuestras, int dificultad, int recompensa) {
 		this.setCantMuestras(cantMuestras);
-		this.dificultad(dificultad);
-		this.recompensa(recompensa);
+		this.setDificultad(dificultad);
+		this.setRecompensa(recompensa);
 	}
 
-	public void recompensa(int recompensa) {
+	private void setRecompensa(int recompensa) {
 		this.recompensa=recompensa;
 	}
 
-	public void dificultad(int dificultad) {
+	private void setDificultad(int dificultad) {
 		this.dificultad=dificultad;
 	}
 
-	public void setCantMuestras(int cantMuestras) {
+	private void setCantMuestras(int cantMuestras) {
 		this.cantMuestras=cantMuestras;
 	}
 
-	public Integer getCantMuestras() {
+	public int getCantMuestras() {
 		return cantMuestras;
 	}
 
-	public Integer getDificultad() {
+	public int getDificultad() {
 		return dificultad;
 	}
 
-	public Integer getRecompensa() {
+	public int getRecompensa() {
 		return recompensa;
 	}
 

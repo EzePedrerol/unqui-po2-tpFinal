@@ -26,7 +26,7 @@ public class Muestra {
 		return coordenada;
 	}
 
-	public void setCoordenada(Coordenada coordenada) {
+	private void setCoordenada(Coordenada coordenada) {
 		this.coordenada = coordenada;
 	}
 
@@ -34,7 +34,7 @@ public class Muestra {
 		return diaYHora;
 	}
 
-	public void setDiaYHora(LocalDateTime diaYHora) {
+	private void setDiaYHora(LocalDateTime diaYHora) {
 		this.diaYHora = diaYHora;
 	}
 
