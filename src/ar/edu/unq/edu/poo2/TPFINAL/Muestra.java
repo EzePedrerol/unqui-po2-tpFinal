@@ -8,8 +8,8 @@ public class Muestra {
 	private Coordenada coordenada;
 	private LocalDateTime diaYHora;
 
-	public Muestra(Usuario usuario, Coordenada coordenada, LocalDateTime diaYHora) {
-		this.setUsuario(usuario);
+	public Muestra( Coordenada coordenada, LocalDateTime diaYHora) {
+		//this.setUsuario(usuario);
 		this.setCoordenada(coordenada);
 		this.setDiaYHora(diaYHora);
 	}

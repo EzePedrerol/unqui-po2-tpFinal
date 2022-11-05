@@ -24,7 +24,7 @@ public class MuestraTest   {
 		coordenada = new Coordenada(5,10);
 		diaYHora = LocalDateTime.now();
 		pepe = mock(Usuario.class);
-		muestra = new Muestra(pepe, coordenada, diaYHora);
+		muestra = new Muestra(coordenada, diaYHora);
 	}
 	
 	@Test
@@ -37,8 +37,10 @@ public class MuestraTest   {
 		assertEquals(diaYHora, muestra. getDiaYHora());
 	}
 	
+	
 	@Test
 	public void getUsuarioTest() {
+		muestra.setUsuario(pepe);
 		assertEquals(pepe, muestra.getUsuario());
 	}
 }
