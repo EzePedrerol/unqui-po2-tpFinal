@@ -58,6 +58,7 @@ public class Usuario implements Observable{
 	public void recogerMuestra(Muestra muestra) {
 		this.muestras.add(muestra);
 		this.ultimaMuestra = muestra;
+		muestra.setUsuario(this);
 		// avisar al proyecto
 	}
 	
