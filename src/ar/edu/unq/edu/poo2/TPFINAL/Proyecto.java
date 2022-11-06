@@ -32,8 +32,6 @@ public class Proyecto implements Observer {
 		return usuarios;
 	}
 
-	
-
 	public String getTitulo() {
 		return titulo;
 	}
@@ -62,7 +60,7 @@ public class Proyecto implements Observer {
 	@Override
 	public void update(Observable observable) {
 		Usuario u = (Usuario) observable;
-		this.muestras.add(u.getUltimaMuestra());
+		this.agregarMuestra(u.getUltimaMuestra());
 		
 	}
 

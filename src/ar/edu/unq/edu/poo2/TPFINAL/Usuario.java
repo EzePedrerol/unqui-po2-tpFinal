@@ -10,7 +10,7 @@ public class Usuario implements Observable{
 	private Muestra ultimaMuestra;
 	private List<Muestra> muestras;
 	private Preferencia preferencia;
-	
+	private Recomendacion recomendacion;
 	
 
 	public Usuario() {
@@ -65,11 +65,20 @@ public class Usuario implements Observable{
 		this.muestras.add(muestra);
 		this.ultimaMuestra = muestra;
 		muestra.setUsuario(this);
-		// avisar al proyecto
+		this.notificar();
+		muestra.setEstado(new Contable());
 	}
 
 	public Preferencia getPreferencia() {
 		return this.preferencia;
+	}
+	
+	public void aceptarDesafio(Desafio desafio) {
+		
+	}
+	
+	public void buscarMatch(List<Desafio> desafios) {
+		List<Desafio> desafiosElegidos = desafios.stream().sorted(Comparator.comparingInt(Desafio::this.recomendacion.elegir())).collect(Collectors.toList());
 	}
 	
 	/*
