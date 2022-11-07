@@ -1,9 +1,9 @@
 package ar.edu.unq.edu.poo2.TPFINAL;
 
-public class NoContable implements Estado{
+public class NoContable implements State{
 
 	@Override
-	public int contar() {
-		return 0;
+	public void contar() {
+		
 	}
 }

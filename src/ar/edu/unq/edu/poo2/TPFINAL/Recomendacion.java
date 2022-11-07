@@ -5,6 +5,7 @@ import java.util.List;
 
 public interface Recomendacion {
 
-	public void coincidencias();
-	public List<Desafio> elegir(Desafio desafio);
+	public int coincidencias(Desafio desafio);
+	public int elegir(Desafio desafio);
+	public List<Desafio> elegirLos(List<Desafio> desafios);
 }

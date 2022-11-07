@@ -1,7 +1,13 @@
 package ar.edu.unq.edu.poo2.TPFINAL;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.function.BooleanSupplier;
 
 public class Usuario implements Observable{
 	
@@ -11,15 +17,23 @@ public class Usuario implements Observable{
 	private List<Muestra> muestras;
 	private Preferencia preferencia;
 	private Recomendacion recomendacion;
+	private List<Desafio> desafiosAceptado;
+	private HashMap<Integer, Desafio> desafiosValorados;
 	
 
 	public Usuario() {
 		observers = new ArrayList<Observer>();
 		muestras = new ArrayList<Muestra>();
 		proyectos = new ArrayList<Proyecto>();
+		this.setRecomendacion(new PreferenciasJuego(this));
+		desafiosAceptado = new ArrayList<Desafio>();
 
 	}
 	
+	private void setRecomendacion(PreferenciasJuego recomendacion) {
+		this.recomendacion= recomendacion;
+	}
+
 	@Override
 	public void attach(Observer ob) {
 		this.observers.add(ob);
@@ -66,7 +80,7 @@ public class Usuario implements Observable{
 		this.ultimaMuestra = muestra;
 		muestra.setUsuario(this);
 		this.notificar();
-		muestra.setEstado(new Contable());
+		//muestra.setEstado(new Contable());
 	}
 
 	public Preferencia getPreferencia() {
@@ -74,11 +88,63 @@ public class Usuario implements Observable{
 	}
 	
 	public void aceptarDesafio(Desafio desafio) {
+		this.desafiosAceptado.add(desafio);
 		
 	}
 	
 	public void buscarMatch(List<Desafio> desafios) {
-		List<Desafio> desafiosElegidos = desafios.stream().sorted(Comparator.comparingInt(Desafio::this.recomendacion.elegir())).collect(Collectors.toList());
+		List<Desafio> desafiosElegidos = this.recomendacion.elegirLos(desafios);
+				
+		/*desafios.stream().sorted(Comparator.comparingInt(desafio -> this.recomendacion.elegir(desafio))).collect(Collectors.toList());
+		
+		desafiosElegidos = desafiosElegidos.stream().limit(1).collect(Collectors.toList()); */
+		
+		this.aceptarDesafios(desafiosElegidos);
+	}
+	
+
+	public void aceptarDesafios(List<Desafio> desafios) {
+		for (Desafio desafio : desafios) {
+			this.aceptarDesafio(desafio);
+		}
+	}
+
+	public List<Desafio> getDesafios() {
+		return desafiosAceptado;
+	}
+	
+	public void votar(Desafio desafio, Integer valor) {
+		this.desafiosValorados.put(valor, desafio);
+	}
+
+	public Desafio getDesafioFav() {
+		/* HashMap<Integer, Desafio> desafiosSeleccionados = this.desafiosValorados.entrySet()
+				  .stream()
+				  .sorted(Map.Entry.<Integer, Desafio>comparingByKey()).to;
+		
+		 return    desafiosSeleccionados.get(0);*/
+		 
+		 List<Map.Entry<Integer, Desafio> > desafiosSeleccionados
+         = new LinkedList<Map.Entry<Integer, Desafio> >(
+             this.desafiosValorados.entrySet());
+
+     // Sort the list using lambda expression
+     Collections.sort(
+    		 desafiosSeleccionados,
+         (i1, i2) -> i1.getKey().compareTo(i2.getKey()));
+
+     // put data from sorted list to hashmap
+     List<Desafio> temp
+         = new ArrayList<Desafio>();
+     for (Map.Entry<Integer, Desafio> d : desafiosSeleccionados) {
+         temp.add(d.getValue());
+     }
+     
+     return temp.get(0);
+	}
+
+	public HashMap<Integer, Desafio> getDesafiosValorados() {
+		return this.desafiosValorados;
 	}
 	
 	/*

@@ -7,13 +7,13 @@ public class Muestra implements State{
 	private Usuario usuario;
 	private Coordenada coordenada;
 	private LocalDateTime diaYHora;
-	private Estado estado;
+	private State estado;
 
 	public Muestra( Coordenada coordenada, LocalDateTime diaYHora) {
 		this.setUsuario(usuario);
 		this.setCoordenada(coordenada);
 		this.setDiaYHora(diaYHora);
-		this.setEstado(new NoContable())
+		this.setEstado(new NoContable());
 	}
 	
 	public Usuario getUsuario() {
@@ -40,12 +40,18 @@ public class Muestra implements State{
 		this.diaYHora = diaYHora;
 	}
 
-	public Estado getEstado() {
+	public State getEstado() {
 		return estado;
 	}
 	
-	private void setEstado(Estado estado) {
+	private void setEstado(State estado) {
 		this.estado = estado;
+	}
+
+	@Override
+	public void contar() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
