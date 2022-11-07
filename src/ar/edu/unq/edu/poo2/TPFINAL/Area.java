@@ -35,4 +35,11 @@ public class Area {
 	public float getRadio() {
 		return radio;
 	}
+
+	public boolean validar(Coordenada coordenada) {
+		return coordenada.getX() <= latitud+radio/2
+				&& coordenada.getX() >= latitud- radio/2
+				&& coordenada.getY() <= longitud + radio/2
+				&& coordenada.getY() >= longitud - radio/2;
+	}
 }

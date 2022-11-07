@@ -88,6 +88,21 @@ public class Proyecto implements Observer {
 		return this.desafios.contains(desafio);
 	}
 
+	
+	public void buscarMatch() {
+		for (Usuario usuario : usuarios) {
+			usuario.buscarMatch(this.desafios);
+		}
+	}
+	
+
+	public boolean tieneMuestra(Muestra muestra) {
+		return this.muestras.contains(muestra);
+	}
+
+
+
+
 
 
 	

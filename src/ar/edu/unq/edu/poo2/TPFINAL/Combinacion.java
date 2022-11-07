@@ -35,8 +35,8 @@ public class Combinacion extends RestriccionTemporal {
 	}
 
 	@Override
-	public List<RestriccionTemporal> getChild() {
-		return this.childs;
+	public int getChild() {
+		return this.childs.size();
 	}
 
 }

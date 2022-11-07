@@ -28,8 +28,8 @@ public class DiaSemana extends RestriccionTemporal {
 	}
 
 	@Override
-	public List<RestriccionTemporal> getChild() {
-		return null;
+	public int getChild() {
+		return 0;
 	}
 
 }

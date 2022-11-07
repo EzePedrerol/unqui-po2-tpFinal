@@ -19,20 +19,17 @@ public class FinSemana extends RestriccionTemporal {
 
 	@Override
 	public void add(RestriccionTemporal rT) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void remove(RestriccionTemporal rT) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public List<RestriccionTemporal> getChild() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getChild() {
+		return 0;
 	}
 
 }

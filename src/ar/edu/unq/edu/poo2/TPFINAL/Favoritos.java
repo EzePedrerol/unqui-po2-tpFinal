@@ -33,12 +33,12 @@ public class Favoritos implements Recomendacion {
 	@Override
 	public List<Desafio> elegirLos(List<Desafio> desafios) {
 		List<Desafio> desafiosElegidos = desafios.stream()
-				.sorted(Comparator.comparingInt(desafio -> this.coincidencias(desafio))).collect(Collectors.toList());
+				.sorted(Comparator.comparingInt(desafio -> this.coincidencias(desafio))).limit(20).collect(Collectors.toList());
 
-		desafiosElegidos = desafiosElegidos.stream().limit(20).collect(Collectors.toList());
+		//desafiosElegidos = desafiosElegidos.stream().limit(20).collect(Collectors.toList());
 		
 		desafiosElegidos = desafiosElegidos.stream()
-				.sorted(Comparator.comparingInt(desafio -> this.elegir(desafio))).collect(Collectors.toList());
+				.sorted(Comparator.comparingInt(desafio -> this.elegir(desafio))).limit(1).collect(Collectors.toList());
 		
 		
 

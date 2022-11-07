@@ -59,4 +59,6 @@ public class Desafio {
 	public Boolean perteneceA(Proyecto proyecto) {
 		return proyecto.tieneDesafio(this);
 	}
+	
+	
 }
