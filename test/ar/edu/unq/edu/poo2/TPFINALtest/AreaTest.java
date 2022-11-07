@@ -42,5 +42,6 @@ public class AreaTest   {
 		when(coor.getX()).thenReturn(15);
 		when(coor.getY()).thenReturn(30);
 		assertTrue(area.validar(coor));
+		
 	}
 }
