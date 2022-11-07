@@ -24,4 +24,9 @@ public class EntreFechasTest {
 	void validarTest() {
 		assertTrue(entreFechas.validar(LocalDate.of(2022, 11, 5)));
 	}
+	
+	@Test
+	void getChildTest() {
+		assertEquals(0, entreFechas.getChild());
+	}
 }

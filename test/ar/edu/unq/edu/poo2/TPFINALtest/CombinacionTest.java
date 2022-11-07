@@ -1,7 +1,6 @@
 package ar.edu.unq.edu.poo2.TPFINALtest;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
 
@@ -69,5 +68,19 @@ public class CombinacionTest {
 		
 		assertFalse(comb.validar(LocalDate.of(2002, 11, 13)));
 		assertFalse(comb.validar(LocalDate.of(2022, 11, 13)));
+	}
+	
+	
+	@Test
+	void getChildTest() {
+		comb.add(entreFechas);
+		assertEquals(1, comb.getChild());
+	}
+	
+	@Test
+	void getChildTest2() {
+		comb.add(entreFechas);
+		comb.remove(entreFechas);
+		assertEquals(0, comb.getChild());
 	}
 }

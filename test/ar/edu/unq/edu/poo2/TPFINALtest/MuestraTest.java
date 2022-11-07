@@ -23,8 +23,9 @@ public class MuestraTest   {
 	public void setup() {
 		coordenada = new Coordenada(5,10);
 		diaYHora = LocalDateTime.now();
-		pepe = mock(Usuario.class);
 		muestra = new Muestra(coordenada, diaYHora);
+		pepe = mock(Usuario.class);
+		
 	}
 	
 	@Test

@@ -28,4 +28,9 @@ public class FinSemanaTest {
 	void validarTest2() {
 		assertFalse(finSemana.validar(LocalDate.of(2022, 11, 3)));
 	}
+	
+	@Test
+	void getChildTest() {
+		assertEquals(0, finSemana.getChild());
+	}
 }

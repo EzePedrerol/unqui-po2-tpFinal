@@ -1,7 +1,10 @@
 package ar.edu.unq.edu.poo2.TPFINALtest;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import ar.edu.unq.edu.poo2.TPFINAL.Categoria;
 import ar.edu.unq.edu.poo2.TPFINAL.Desafio;
 import ar.edu.unq.edu.poo2.TPFINAL.Muestra;
+import ar.edu.unq.edu.poo2.TPFINAL.Preferencia;
 import ar.edu.unq.edu.poo2.TPFINAL.Proyecto;
 import ar.edu.unq.edu.poo2.TPFINAL.Usuario;
 
@@ -20,9 +24,10 @@ public class ProyectoTest {
 	List<Categoria> categorias;
 	Categoria unaCategoria;
 	Categoria otraCategoria;
-	Usuario usuario;
+	Usuario usuario1;
 	Muestra muestra;
 	Desafio desafio;
+	Preferencia preferencia;
 
 	@BeforeEach
 	public void setup() {
@@ -32,6 +37,8 @@ public class ProyectoTest {
 		proyecto = new Proyecto("El Proyecto", "Soy un proyecto", categorias);
 		muestra = mock(Muestra.class);
 		desafio = mock(Desafio.class);
+		usuario1 = new Usuario();
+		preferencia = mock(Preferencia.class);
 	}
 
 	@Test
@@ -51,7 +58,7 @@ public class ProyectoTest {
 
 	@Test
 	public void suscribirUsuarioTest() {
-		proyecto.suscribirUsuario(usuario);
+		proyecto.suscribirUsuario(usuario1);
 		assertEquals(1, proyecto.getUsuarios().size());
 	}
 
@@ -80,4 +87,45 @@ public class ProyectoTest {
 		proyecto.agregarDesafio(desafio);
 		assertTrue(proyecto.tieneDesafio(desafio));
 	}
+	
+	
+	@Test
+	public void buscarMatchTest() {
+		
+		usuario1.setPreferencia(preferencia);
+
+		when(desafio.getCantidadMuestras()).thenReturn(2);
+
+		when(desafio.getDificultad()).thenReturn(2);
+
+		when(desafio.getRecompensa()).thenReturn(2);
+
+		when(preferencia.getCantMuestras()).thenReturn(2);
+		when(preferencia.getDificultad()).thenReturn(2);
+		when(preferencia.getRecompensa()).thenReturn(2);
+
+		
+		proyecto.agregarDesafio(desafio);
+		proyecto.suscribirUsuario(usuario1);
+		
+		proyecto.buscarMatch();
+		assertEquals(desafio, usuario1.getDesafios().get(0));
+	}
+	
+	
+	@Test
+	public void getUsuariosTest() {
+		proyecto.suscribirUsuario(usuario1);
+		
+		assertEquals(usuario1, proyecto.getUsuarios().get(0));
+	}
+	
+	@Test
+	public void getDesafiosTest() {
+		proyecto.agregarDesafio(desafio);
+		
+		assertEquals(desafio, proyecto.getDesafios().get(0));
+	}
+	
+	
 }
