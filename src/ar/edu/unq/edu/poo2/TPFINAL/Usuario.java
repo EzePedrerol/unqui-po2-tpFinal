@@ -93,14 +93,7 @@ public class Usuario implements Observable {
 	public void buscarMatch(List<Desafio> desafios) {
 		List<Desafio> desafiosElegidos = this.recomendacion.elegirLos(desafios);
 
-		/*
-		 * desafios.stream().sorted(Comparator.comparingInt(desafio ->
-		 * this.recomendacion.elegir(desafio))).collect(Collectors.toList());
-		 * 
-		 * desafiosElegidos =
-		 * desafiosElegidos.stream().limit(1).collect(Collectors.toList());
-		 */
-
+		
 		this.aceptarDesafios(desafiosElegidos);
 	}
 
@@ -161,9 +154,5 @@ public class Usuario implements Observable {
 		return desafiosAceptado.stream().filter(desafio -> this.porcentajeCompletitud(desafio) == 100).toList();
 	}
 
-	/*
-	 *   deafiosCompletados 
-	 *  
-	 */
-
+	
 }
