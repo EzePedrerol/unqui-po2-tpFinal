@@ -25,7 +25,7 @@ public class Muestra  {
 		this.usuario = usuario;
 	}
 
-	public List<Proyecto> proyectos() {
+	/*public List<Proyecto> proyectos() {
 		List<Proyecto> lista = new ArrayList<Proyecto>();
 
 		for (Proyecto proyecto : usuario.getProyecto()) {
@@ -35,7 +35,7 @@ public class Muestra  {
 		}
 
 		return lista;
-	}
+	}*/
 
 	public Coordenada getCoordenada() {
 		return coordenada;
