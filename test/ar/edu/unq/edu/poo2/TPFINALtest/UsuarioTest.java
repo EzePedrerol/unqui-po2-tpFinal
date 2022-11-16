@@ -62,16 +62,13 @@ public class UsuarioTest {
 		assertTrue(usuario.getMuestras().isEmpty());
 	}
 
-	@Test
-	public void getProyectos() {
-		assertTrue(usuario.getProyecto().isEmpty());
-	}
+	
 
 	@Test
 	public void suscribirseATest() {
 		usuario.suscribirseA(proyecto);
 		verify(proyecto).suscribirUsuario(usuario);
-		assertFalse(usuario.getProyecto().isEmpty());
+		assertFalse(usuario.getProyectos().isEmpty());
 	}
 
 	@Test

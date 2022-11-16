@@ -67,6 +67,10 @@ public class Usuario implements Observable {
 		proyecto.suscribirUsuario(this);
 		this.observers.add(proyecto); 
 	}
+	
+	public List<Observer> getProyectos() {
+		return this.observers;
+	}
 
 	public void recogerMuestra(Muestra muestra) {
 		this.muestras.add(muestra);
