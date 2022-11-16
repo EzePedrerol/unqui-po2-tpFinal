@@ -11,7 +11,6 @@ import java.util.function.BooleanSupplier;
 
 public class Usuario implements Observable {
 
-	private List<Proyecto> proyectos; // debe ir uno o el otro, no los dos
 	private List<Observer> observers; //
 	private Muestra ultimaMuestra;
 	private List<Muestra> muestras;
@@ -23,7 +22,6 @@ public class Usuario implements Observable {
 	public Usuario() {
 		observers = new ArrayList<Observer>();
 		muestras = new ArrayList<Muestra>();
-		proyectos = new ArrayList<Proyecto>();
 		this.setRecomendacion(new PreferenciasJuego(this));
 		desafiosAceptado = new ArrayList<Desafio>();
 		desafiosValorados = new HashMap<Integer, Desafio>();
@@ -55,9 +53,7 @@ public class Usuario implements Observable {
 		return this.muestras;
 	}
 
-	public List<Proyecto> getProyecto() {
-		return this.proyectos;
-	}
+	
 
 	public Muestra getUltimaMuestra() {
 		return this.ultimaMuestra;
@@ -69,8 +65,7 @@ public class Usuario implements Observable {
 
 	public void suscribirseA(Proyecto proyecto) {
 		proyecto.suscribirUsuario(this);
-		this.proyectos.add(proyecto);
-		this.observers.add(proyecto); // corregir, dejar uno o el otro
+		this.observers.add(proyecto); 
 	}
 
 	public void recogerMuestra(Muestra muestra) {
