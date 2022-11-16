@@ -5,14 +5,15 @@ import java.util.List;
 import java.util.function.BooleanSupplier;
 
 public class Proyecto implements Observer {
-	
+
 	private String titulo;
 	private String descripcion;
 	private List<Categoria> categorias;
 	private List<Muestra> muestras;
+	private List<Muestra> muestrasRecolectadas;
 	private List<Usuario> usuarios;
 	private List<Desafio> desafios;
-	
+
 	public Proyecto(String titulo, String descripcion, List<Categoria> categorias) {
 		this.setTitulo(titulo);
 		this.setDescripcion(descripcion);
@@ -20,13 +21,12 @@ public class Proyecto implements Observer {
 		muestras = new ArrayList<Muestra>();
 		usuarios = new ArrayList<Usuario>();
 		desafios = new ArrayList<Desafio>();
-		
+
 	}
 
 	public List<Muestra> getMuestras() {
 		return muestras;
 	}
-
 
 	public List<Usuario> getUsuarios() {
 		return usuarios;
@@ -60,8 +60,9 @@ public class Proyecto implements Observer {
 	@Override
 	public void update(Observable observable) {
 		Usuario u = (Usuario) observable;
-		this.agregarMuestra(u.getUltimaMuestra());
-		
+		if (this.muestras.contains(u.getUltimaMuestra())) {
+			this.muestrasRecolectadas.add(u.getUltimaMuestra());
+		}
 	}
 
 	public void suscribirUsuario(Usuario usuario) {
@@ -88,25 +89,14 @@ public class Proyecto implements Observer {
 		return this.desafios.contains(desafio);
 	}
 
-	
 	public void buscarMatch() {
 		for (Usuario usuario : usuarios) {
 			usuario.buscarMatch(this.desafios);
 		}
 	}
-	
 
 	public boolean tieneMuestra(Muestra muestra) {
 		return this.muestras.contains(muestra);
 	}
-
-
-
-
-
-
-	
-
-	
 
 }
