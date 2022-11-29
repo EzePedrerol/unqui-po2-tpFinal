@@ -25,10 +25,11 @@ public class Usuario implements Observable {
 		this.setRecomendacion(new PreferenciasJuego(this));
 		desafiosAceptado = new ArrayList<Desafio>();
 		desafiosValorados = new HashMap<Integer, Desafio>();
+		
 
 	}
 
-	private void setRecomendacion(PreferenciasJuego recomendacion) {
+	private void setRecomendacion(Recomendacion recomendacion) {
 		this.recomendacion = recomendacion;
 	}
 
@@ -60,6 +61,10 @@ public class Usuario implements Observable {
 	}
 
 	public void setPreferencia(Preferencia preferencia) {
+		/*this.preferencia.setCantMuestras(cantMuestras);
+		this.preferencia.setDificultad(dificultad);
+		this.preferencia.setRecompensa(recompensa);
+	*/
 		this.preferencia = preferencia;
 	}
 
