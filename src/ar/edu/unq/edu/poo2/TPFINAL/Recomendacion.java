@@ -4,7 +4,7 @@ import java.util.List;
 
 public abstract class Recomendacion {
 
-	Usuario usuario;
+	 Usuario usuario;
 
 	public int coincidencias(Desafio desafio) {
 		int muestras = Math.abs(this.usuario.getPreferencia().getCantMuestras() - desafio.getCantidadMuestras());

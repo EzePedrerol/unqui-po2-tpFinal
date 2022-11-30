@@ -22,7 +22,8 @@ public class Usuario implements Observable {
 	public Usuario() {
 		observers = new ArrayList<Observer>();
 		muestras = new ArrayList<Muestra>();
-		this.setRecomendacion(new PreferenciasJuego(this));
+		this.recomendacion = new PreferenciasJuego(this);
+		//this.setRecomendacion(new PreferenciasJuego(this));
 		desafiosAceptado = new ArrayList<Desafio>();
 		desafiosValorados = new HashMap<Integer, Desafio>();
 		

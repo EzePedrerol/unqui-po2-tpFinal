@@ -6,7 +6,8 @@ import java.util.stream.Collectors;
 
 public class PreferenciasJuego extends Recomendacion {
 
-	Usuario usuario;
+
+
 
 	public PreferenciasJuego(Usuario usuario) {
 		this.usuario = usuario;

@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 public class Favoritos extends Recomendacion {
 
-	Usuario usuario;
 
 	public Favoritos(Usuario usuario) {
 		this.usuario = usuario;
