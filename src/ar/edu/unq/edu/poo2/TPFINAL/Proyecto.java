@@ -19,6 +19,7 @@ public class Proyecto implements Observer {
 		this.setDescripcion(descripcion);
 		this.setCategorias(categorias);
 		muestras = new ArrayList<Muestra>();
+		
 		muestrasRecolectadas = new ArrayList<Muestra>();
 		usuarios = new ArrayList<Usuario>();
 		desafios = new ArrayList<Desafio>();
