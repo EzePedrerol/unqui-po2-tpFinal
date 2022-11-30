@@ -25,6 +25,7 @@ public class ProyectoTest {
 	Categoria unaCategoria;
 	Categoria otraCategoria;
 	Usuario usuario1;
+	Usuario U;
 	Muestra muestra;
 	Desafio desafio;
 	Preferencia preferencia;
@@ -39,6 +40,7 @@ public class ProyectoTest {
 		desafio = mock(Desafio.class);
 		usuario1 = new Usuario();
 		preferencia = mock(Preferencia.class);
+		U = new Usuario();
 	}
 
 	@Test
@@ -127,5 +129,16 @@ public class ProyectoTest {
 		assertEquals(desafio, proyecto.getDesafios().get(0));
 	}
 	
+	@Test
+	public void updateTest() {
+		proyecto.agregarDesafio(desafio);
+		proyecto.agregarMuestra(muestra);
+		
+		U.suscribirseA(proyecto);
+		U.recogerMuestra(muestra);
+		
+		
+		assertTrue( !proyecto.getMuestrasRecolectadas().isEmpty());
+	}
 	
 }

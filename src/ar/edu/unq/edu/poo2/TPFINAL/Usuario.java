@@ -71,7 +71,12 @@ public class Usuario implements Observable {
 
 	public void suscribirseA(Proyecto proyecto) {
 		proyecto.suscribirUsuario(this);
-		this.observers.add(proyecto); 
+		this.attach(proyecto); 
+	}
+	
+	public void desuscribirseA(Proyecto proyecto) {
+		proyecto.desuscribirUsuario(this);
+		this.detach(proyecto); 
 	}
 	
 	public List<Observer> getProyectos() {

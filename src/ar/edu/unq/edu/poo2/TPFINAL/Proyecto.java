@@ -19,6 +19,7 @@ public class Proyecto implements Observer {
 		this.setDescripcion(descripcion);
 		this.setCategorias(categorias);
 		muestras = new ArrayList<Muestra>();
+		muestrasRecolectadas = new ArrayList<Muestra>();
 		usuarios = new ArrayList<Usuario>();
 		desafios = new ArrayList<Desafio>();
 
@@ -68,6 +69,10 @@ public class Proyecto implements Observer {
 	public void suscribirUsuario(Usuario usuario) {
 		this.usuarios.add(usuario);
 	}
+	
+	public void desuscribirUsuario(Usuario usuario) {
+		this.usuarios.remove(usuario);		
+	}
 
 	public void agregarMuestra(Muestra muestra) {
 		this.muestras.add(muestra);
@@ -98,5 +103,10 @@ public class Proyecto implements Observer {
 	public boolean tieneMuestra(Muestra muestra) {
 		return this.muestras.contains(muestra);
 	}
+	
+	public List<Muestra> getMuestrasRecolectadas(){
+		return this.muestrasRecolectadas;
+	}
 
+	
 }
